@@ -1,0 +1,363 @@
+{
+  "apiVersion" : "apps.openshift.io/v1",
+  "kind" : "DeploymentConfig",
+  "metadata" : {
+    "annotations" : {
+      "app.openshift.io/vcs-ref" : "master",
+      "app.openshift.io/vcs-uri" : "https://github.com/likhia/INTERNAL_SERVICE.git",
+      "jkube.io/git-branch" : "master",
+      "jkube.io/git-commit" : "b64f0884243ee8dee6648a919578695ff975efbe",
+      "jkube.io/git-url" : "https://github.com/likhia/INTERNAL_SERVICE.git",
+      "jkube.io/issue-system" : "GitHub",
+      "jkube.io/issue-tracker-url" : "https://github.com/snowdrop/spring-boot-bom/issues",
+      "jkube.io/scm-tag" : "2.3.2.Beta1",
+      "jkube.io/scm-url" : "https://github.com/snowdrop/spring-boot-bom/workshop-main"
+    },
+    "creationTimestamp" : "2021-07-27T14:28:41Z",
+    "generation" : 1,
+    "labels" : {
+      "app" : "workshop-main",
+      "group" : "com.workshop.main",
+      "provider" : "jkube",
+      "version" : "1.0.0-SNAPSHOT"
+    },
+    "managedFields" : [ {
+      "apiVersion" : "apps.openshift.io/v1",
+      "fieldsType" : "FieldsV1",
+      "fieldsV1" : {
+        "f:metadata" : {
+          "f:annotations" : {
+            "." : { },
+            "f:app.openshift.io/vcs-ref" : { },
+            "f:app.openshift.io/vcs-uri" : { },
+            "f:jkube.io/git-branch" : { },
+            "f:jkube.io/git-commit" : { },
+            "f:jkube.io/git-url" : { },
+            "f:jkube.io/issue-system" : { },
+            "f:jkube.io/issue-tracker-url" : { },
+            "f:jkube.io/scm-tag" : { },
+            "f:jkube.io/scm-url" : { }
+          },
+          "f:labels" : {
+            "." : { },
+            "f:app" : { },
+            "f:group" : { },
+            "f:provider" : { },
+            "f:version" : { }
+          }
+        },
+        "f:spec" : {
+          "f:replicas" : { },
+          "f:revisionHistoryLimit" : { },
+          "f:selector" : {
+            "." : { },
+            "f:app" : { },
+            "f:group" : { },
+            "f:provider" : { }
+          },
+          "f:strategy" : {
+            "f:activeDeadlineSeconds" : { },
+            "f:rollingParams" : {
+              "." : { },
+              "f:intervalSeconds" : { },
+              "f:maxSurge" : { },
+              "f:maxUnavailable" : { },
+              "f:timeoutSeconds" : { },
+              "f:updatePeriodSeconds" : { }
+            },
+            "f:type" : { }
+          },
+          "f:template" : {
+            "." : { },
+            "f:metadata" : {
+              "." : { },
+              "f:annotations" : {
+                "." : { },
+                "f:app.openshift.io/vcs-ref" : { },
+                "f:app.openshift.io/vcs-uri" : { },
+                "f:jkube.io/git-branch" : { },
+                "f:jkube.io/git-commit" : { },
+                "f:jkube.io/git-url" : { },
+                "f:jkube.io/issue-system" : { },
+                "f:jkube.io/issue-tracker-url" : { },
+                "f:jkube.io/scm-tag" : { },
+                "f:jkube.io/scm-url" : { }
+              },
+              "f:creationTimestamp" : { },
+              "f:labels" : {
+                "." : { },
+                "f:app" : { },
+                "f:group" : { },
+                "f:provider" : { },
+                "f:version" : { }
+              }
+            },
+            "f:spec" : {
+              "." : { },
+              "f:containers" : {
+                "." : { },
+                "k:{\"name\":\"spring-boot\"}" : {
+                  "." : { },
+                  "f:env" : {
+                    "." : { },
+                    "k:{\"name\":\"KUBERNETES_NAMESPACE\"}" : {
+                      "." : { },
+                      "f:name" : { },
+                      "f:valueFrom" : {
+                        "." : { },
+                        "f:fieldRef" : {
+                          "." : { },
+                          "f:apiVersion" : { },
+                          "f:fieldPath" : { }
+                        }
+                      }
+                    }
+                  },
+                  "f:image" : { },
+                  "f:imagePullPolicy" : { },
+                  "f:livenessProbe" : {
+                    "." : { },
+                    "f:failureThreshold" : { },
+                    "f:httpGet" : {
+                      "." : { },
+                      "f:path" : { },
+                      "f:port" : { },
+                      "f:scheme" : { }
+                    },
+                    "f:initialDelaySeconds" : { },
+                    "f:periodSeconds" : { },
+                    "f:successThreshold" : { },
+                    "f:timeoutSeconds" : { }
+                  },
+                  "f:name" : { },
+                  "f:ports" : {
+                    "." : { },
+                    "k:{\"containerPort\":8080,\"protocol\":\"TCP\"}" : {
+                      "." : { },
+                      "f:containerPort" : { },
+                      "f:name" : { },
+                      "f:protocol" : { }
+                    },
+                    "k:{\"containerPort\":8778,\"protocol\":\"TCP\"}" : {
+                      "." : { },
+                      "f:containerPort" : { },
+                      "f:name" : { },
+                      "f:protocol" : { }
+                    },
+                    "k:{\"containerPort\":9779,\"protocol\":\"TCP\"}" : {
+                      "." : { },
+                      "f:containerPort" : { },
+                      "f:name" : { },
+                      "f:protocol" : { }
+                    }
+                  },
+                  "f:readinessProbe" : {
+                    "." : { },
+                    "f:failureThreshold" : { },
+                    "f:httpGet" : {
+                      "." : { },
+                      "f:path" : { },
+                      "f:port" : { },
+                      "f:scheme" : { }
+                    },
+                    "f:initialDelaySeconds" : { },
+                    "f:periodSeconds" : { },
+                    "f:successThreshold" : { },
+                    "f:timeoutSeconds" : { }
+                  },
+                  "f:resources" : { },
+                  "f:securityContext" : {
+                    "." : { },
+                    "f:privileged" : { }
+                  },
+                  "f:terminationMessagePath" : { },
+                  "f:terminationMessagePolicy" : { },
+                  "f:volumeMounts" : {
+                    "." : { },
+                    "k:{\"mountPath\":\"/config\"}" : {
+                      "." : { },
+                      "f:mountPath" : { },
+                      "f:name" : { },
+                      "f:readOnly" : { }
+                    }
+                  }
+                }
+              },
+              "f:dnsPolicy" : { },
+              "f:restartPolicy" : { },
+              "f:schedulerName" : { },
+              "f:securityContext" : { },
+              "f:terminationGracePeriodSeconds" : { },
+              "f:volumes" : {
+                "." : { },
+                "k:{\"name\":\"config\"}" : {
+                  "." : { },
+                  "f:configMap" : {
+                    "." : { },
+                    "f:defaultMode" : { },
+                    "f:items" : { },
+                    "f:name" : { }
+                  },
+                  "f:name" : { }
+                }
+              }
+            }
+          },
+          "f:triggers" : { }
+        }
+      },
+      "manager" : "okhttp",
+      "operation" : "Update",
+      "time" : "2021-07-27T14:28:41Z"
+    } ],
+    "name" : "workshop-main",
+    "namespace" : "service",
+    "resourceVersion" : "7411342",
+    "uid" : "2b454200-a327-4e93-9bb0-a5150f96cad2"
+  },
+  "spec" : {
+    "replicas" : 1,
+    "revisionHistoryLimit" : 2,
+    "selector" : {
+      "app" : "workshop-main",
+      "group" : "com.workshop.main",
+      "provider" : "jkube"
+    },
+    "strategy" : {
+      "activeDeadlineSeconds" : 21600,
+      "resources" : { },
+      "rollingParams" : {
+        "intervalSeconds" : 1,
+        "maxSurge" : "25%",
+        "maxUnavailable" : "25%",
+        "timeoutSeconds" : 3600,
+        "updatePeriodSeconds" : 1
+      },
+      "type" : "Rolling"
+    },
+    "template" : {
+      "metadata" : {
+        "annotations" : {
+          "app.openshift.io/vcs-ref" : "master",
+          "app.openshift.io/vcs-uri" : "https://github.com/likhia/INTERNAL_SERVICE.git",
+          "jkube.io/git-branch" : "master",
+          "jkube.io/git-commit" : "b64f0884243ee8dee6648a919578695ff975efbe",
+          "jkube.io/git-url" : "https://github.com/likhia/INTERNAL_SERVICE.git",
+          "jkube.io/issue-system" : "GitHub",
+          "jkube.io/issue-tracker-url" : "https://github.com/snowdrop/spring-boot-bom/issues",
+          "jkube.io/scm-tag" : "2.3.2.Beta1",
+          "jkube.io/scm-url" : "https://github.com/snowdrop/spring-boot-bom/workshop-main"
+        },
+        "labels" : {
+          "app" : "workshop-main",
+          "group" : "com.workshop.main",
+          "provider" : "jkube",
+          "version" : "1.0.0-SNAPSHOT"
+        }
+      },
+      "spec" : {
+        "containers" : [ {
+          "env" : [ {
+            "name" : "KUBERNETES_NAMESPACE",
+            "valueFrom" : {
+              "fieldRef" : {
+                "apiVersion" : "v1",
+                "fieldPath" : "metadata.namespace"
+              }
+            }
+          } ],
+          "image" : "workshop-main:latest",
+          "imagePullPolicy" : "IfNotPresent",
+          "livenessProbe" : {
+            "failureThreshold" : 3,
+            "httpGet" : {
+              "path" : "/actuator/health",
+              "port" : 8080,
+              "scheme" : "HTTP"
+            },
+            "initialDelaySeconds" : 180,
+            "periodSeconds" : 10,
+            "successThreshold" : 1,
+            "timeoutSeconds" : 1
+          },
+          "name" : "spring-boot",
+          "ports" : [ {
+            "containerPort" : 8080,
+            "name" : "http",
+            "protocol" : "TCP"
+          }, {
+            "containerPort" : 9779,
+            "name" : "prometheus",
+            "protocol" : "TCP"
+          }, {
+            "containerPort" : 8778,
+            "name" : "jolokia",
+            "protocol" : "TCP"
+          } ],
+          "readinessProbe" : {
+            "failureThreshold" : 3,
+            "httpGet" : {
+              "path" : "/actuator/health",
+              "port" : 8080,
+              "scheme" : "HTTP"
+            },
+            "initialDelaySeconds" : 10,
+            "periodSeconds" : 10,
+            "successThreshold" : 1,
+            "timeoutSeconds" : 1
+          },
+          "resources" : { },
+          "securityContext" : {
+            "privileged" : false
+          },
+          "terminationMessagePath" : "/dev/termination-log",
+          "terminationMessagePolicy" : "File",
+          "volumeMounts" : [ {
+            "mountPath" : "/config",
+            "name" : "config",
+            "readOnly" : true
+          } ]
+        } ],
+        "dnsPolicy" : "ClusterFirst",
+        "restartPolicy" : "Always",
+        "schedulerName" : "default-scheduler",
+        "securityContext" : { },
+        "terminationGracePeriodSeconds" : 30,
+        "volumes" : [ {
+          "configMap" : {
+            "defaultMode" : 420,
+            "items" : [ {
+              "key" : "application.properties",
+              "path" : "application.properties"
+            } ],
+            "name" : "service-config-map"
+          },
+          "name" : "config"
+        } ]
+      }
+    },
+    "test" : false,
+    "triggers" : [ {
+      "type" : "ConfigChange"
+    }, {
+      "imageChangeParams" : {
+        "automatic" : true,
+        "containerNames" : [ "spring-boot" ],
+        "from" : {
+          "kind" : "ImageStreamTag",
+          "name" : "workshop-main:latest",
+          "namespace" : "service"
+        }
+      },
+      "type" : "ImageChange"
+    } ]
+  },
+  "status" : {
+    "availableReplicas" : 0,
+    "latestVersion" : 0,
+    "observedGeneration" : 0,
+    "replicas" : 0,
+    "unavailableReplicas" : 0,
+    "updatedReplicas" : 0
+  }
+}

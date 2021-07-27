@@ -1,0 +1,45 @@
+{
+  "apiVersion" : "v1",
+  "kind" : "ConfigMap",
+  "metadata" : {
+    "creationTimestamp" : "2021-07-27T14:28:40Z",
+    "labels" : {
+      "app" : "workshop-main",
+      "group" : "com.workshop.main",
+      "provider" : "jkube",
+      "version" : "1.0.0-SNAPSHOT"
+    },
+    "managedFields" : [ {
+      "apiVersion" : "v1",
+      "fieldsType" : "FieldsV1",
+      "fieldsV1" : {
+        "f:data" : {
+          "." : { },
+          "f:common.uri" : { },
+          "f:test" : { }
+        },
+        "f:metadata" : {
+          "f:labels" : {
+            "." : { },
+            "f:app" : { },
+            "f:group" : { },
+            "f:provider" : { },
+            "f:version" : { }
+          }
+        }
+      },
+      "manager" : "okhttp",
+      "operation" : "Update",
+      "time" : "2021-07-27T14:56:34Z"
+    } ],
+    "name" : "service-config-map",
+    "namespace" : "service",
+    "resourceVersion" : "7467043",
+    "selfLink" : "/api/v1/namespaces/service/configmaps/service-config-map",
+    "uid" : "6de5beee-ad52-437f-b78f-f044cbdd59a3"
+  },
+  "data" : {
+    "common.uri" : "services-common.apps.cluster-2e68.2e68.sandbox1783.opentlc.com",
+    "test" : "openshift"
+  }
+}

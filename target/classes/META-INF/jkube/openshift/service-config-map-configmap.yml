@@ -1,0 +1,16 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  labels:
+    app: workshop-main
+    provider: jkube
+    version: 1.0.0-SNAPSHOT
+    group: com.workshop.main
+  name: service-config-map
+data:
+  application.properties: |-
+    resteasy.jaxrs.defaultPath:/api
+
+    common.uri=services-common.apps.cluster-2e68.2e68.sandbox1783.opentlc.com
+    test=openshift

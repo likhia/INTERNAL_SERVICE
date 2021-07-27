@@ -18,12 +18,16 @@ public class ServiceEndPoint {
     @Value("${common.uri}")
     private String commonURI; 
 
+    @Value("${test}")
+    private String test; 
+    
     @POST
     @Path("/registervehicle")
     @Produces("application/json")
     public String registerVehicle(CarRegistration carInfo) {
         String plateNo = "UNASSIGNED";
 
+        System.out.println("Test : " + test);
         System.out.println("Model : " + carInfo.getModel());
         System.out.println("Color : " + carInfo.getColor());
         System.out.println("Type : " + carInfo.getType());

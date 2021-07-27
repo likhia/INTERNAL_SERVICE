@@ -1,0 +1,9 @@
+metadata:
+  name: service-config-map
+data:
+  # file-like keys
+  application.properties: |-
+    resteasy.jaxrs.defaultPath:/api
+
+    common.uri=services.common.svc.cluster.local:8080
+    test=openshift
