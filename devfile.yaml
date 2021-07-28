@@ -68,7 +68,7 @@ commands:
     actions:
       - workdir: '${CHE_PROJECTS_ROOT}/INTERNAL_SERVICE'
         type: exec
-        command: 'mvn fabric8:deploy -Popenshift -DskipTests'
+        command: 'mvn oc:resource oc:deploy -Djkube.build.switchToDeployment=true'
         component: maven
   - name: Debug remote java application
     actions:

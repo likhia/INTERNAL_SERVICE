@@ -11,7 +11,7 @@ metadata:
     jkube.io/git-url: https://github.com/likhia/INTERNAL_SERVICE.git
     app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
     jkube.io/scm-tag: 2.3.2.Beta1
-    jkube.io/git-commit: b64f0884243ee8dee6648a919578695ff975efbe
+    jkube.io/git-commit: 975bd1070d7b47274410c1449a775ae9afe229d2
     app.kubernetes.io/vcs-uri: git@github.com:snowdrop/rest-http-example.git
   labels:
     app.kubernetes.io/part-of: http-api-example

@@ -10,6 +10,6 @@ items:
     tags:
     - from:
         kind: ImageStreamImage
-        name: workshop-main@sha256:d72fc10103fabba96e99b44e9d156728406fd1e0f884948081d57d3ba5394755
+        name: workshop-main@sha256:68bd3e2fa913840576d398711974326a3185df192ccb6270c3156cfcb7eb0519
         namespace: service
       name: latest
