@@ -7,7 +7,7 @@ metadata:
     jkube.io/scm-url: https://github.com/snowdrop/spring-boot-bom/workshop-main
     jkube.io/issue-tracker-url: https://github.com/snowdrop/spring-boot-bom/issues
     app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
-    jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
+    jkube.io/git-commit: 70a1f6360251e476f2f59655d03d35f325c73b17
     app.openshift.io/vcs-ref: master
     jkube.io/git-branch: master
     prometheus.io/port: "9779"

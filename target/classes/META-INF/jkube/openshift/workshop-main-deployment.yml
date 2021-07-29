@@ -11,7 +11,7 @@ metadata:
     jkube.io/git-url: https://github.com/likhia/INTERNAL_SERVICE.git
     app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
     jkube.io/scm-tag: 2.3.2.Beta1
-    jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
+    jkube.io/git-commit: 70a1f6360251e476f2f59655d03d35f325c73b17
   labels:
     app: workshop-main
     provider: jkube

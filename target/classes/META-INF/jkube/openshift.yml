@@ -10,7 +10,7 @@ items:
       jkube.io/scm-url: https://github.com/snowdrop/spring-boot-bom/workshop-main
       jkube.io/issue-tracker-url: https://github.com/snowdrop/spring-boot-bom/issues
       app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
-      jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
+      jkube.io/git-commit: 70a1f6360251e476f2f59655d03d35f325c73b17
       app.openshift.io/vcs-ref: master
       jkube.io/git-branch: master
       prometheus.io/port: "9779"
@@ -58,8 +58,8 @@ items:
       spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
       spring.datasource.testOnBorrow=true
       spring.datasource.validationQuery=SELECT 1
-- apiVersion: apps.openshift.io/v1
-  kind: DeploymentConfig
+- apiVersion: apps/v1
+  kind: Deployment
   metadata:
     annotations:
       app.openshift.io/vcs-ref: master
@@ -70,7 +70,7 @@ items:
       jkube.io/git-url: https://github.com/likhia/INTERNAL_SERVICE.git
       app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
       jkube.io/scm-tag: 2.3.2.Beta1
-      jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
+      jkube.io/git-commit: 70a1f6360251e476f2f59655d03d35f325c73b17
     labels:
       app: workshop-main
       provider: jkube
@@ -79,27 +79,13 @@ items:
     name: workshop-main
   spec:
     replicas: 1
-    revisionHistoryLimit: 2
     selector:
-      app: workshop-main
-      provider: jkube
-      group: com.workshop.main
-    strategy:
-      rollingParams:
-        timeoutSeconds: 3600
-      type: Rolling
+      matchLabels:
+        app: workshop-main
+        provider: jkube
+        group: com.workshop.main
     template:
       metadata:
-        annotations:
-          app.openshift.io/vcs-ref: master
-          jkube.io/git-branch: master
-          jkube.io/scm-url: https://github.com/snowdrop/spring-boot-bom/workshop-main
-          jkube.io/issue-system: GitHub
-          jkube.io/issue-tracker-url: https://github.com/snowdrop/spring-boot-bom/issues
-          jkube.io/git-url: https://github.com/likhia/INTERNAL_SERVICE.git
-          app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
-          jkube.io/scm-tag: 2.3.2.Beta1
-          jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
         labels:
           app: workshop-main
           provider: jkube
@@ -154,16 +140,6 @@ items:
               path: application.properties
             name: service-config-map
           name: config
-    triggers:
-    - type: ConfigChange
-    - imageChangeParams:
-        automatic: true
-        containerNames:
-        - spring-boot
-        from:
-          kind: ImageStreamTag
-          name: workshop-main:latest
-      type: ImageChange
 - apiVersion: route.openshift.io/v1
   kind: Route
   metadata:
@@ -176,7 +152,7 @@ items:
       jkube.io/git-url: https://github.com/likhia/INTERNAL_SERVICE.git
       app.openshift.io/vcs-uri: https://github.com/likhia/INTERNAL_SERVICE.git
       jkube.io/scm-tag: 2.3.2.Beta1
-      jkube.io/git-commit: 1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f
+      jkube.io/git-commit: 70a1f6360251e476f2f59655d03d35f325c73b17
       app.kubernetes.io/vcs-uri: git@github.com:snowdrop/rest-http-example.git
     labels:
       app.kubernetes.io/part-of: http-api-example
