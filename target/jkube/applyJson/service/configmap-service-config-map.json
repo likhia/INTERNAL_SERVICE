@@ -30,14 +30,25 @@
       "manager" : "okhttp",
       "operation" : "Update",
       "time" : "2021-07-27T15:15:12Z"
+    }, {
+      "apiVersion" : "v1",
+      "fieldsType" : "FieldsV1",
+      "fieldsV1" : {
+        "f:data" : {
+          "f:application.properties" : { }
+        }
+      },
+      "manager" : "Mozilla",
+      "operation" : "Update",
+      "time" : "2021-07-29T12:07:16Z"
     } ],
     "name" : "service-config-map",
     "namespace" : "service",
-    "resourceVersion" : "11165998",
+    "resourceVersion" : "11445219",
     "selfLink" : "/api/v1/namespaces/service/configmaps/service-config-map",
     "uid" : "6de5beee-ad52-437f-b78f-f044cbdd59a3"
   },
   "data" : {
-    "application.properties" : "resteasy.jaxrs.defaultPath:/api\n\ncommon.uri=services.common.svc.cluster.local:8080\n\nspring.datasource.url=jdbc:mysql://mysql.database.svc.cluster:local:3306/cars\nspring.datasource.username=admin\nspring.datasource.password=redhat\nspring.jpa.hibernate.ddl-auto=update\n\nspring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect\nspring.datasource.testOnBorrow=true\nspring.datasource.validationQuery=SELECT 1"
+    "application.properties" : "resteasy.jaxrs.defaultPath:/api\n\ncommon.uri=services.common.svc.cluster.local:8080\n\nspring.datasource.url=jdbc:mysql://mysql.database.svc.cluster.local:3306/cars\nspring.datasource.username=admin\nspring.datasource.password=redhat\nspring.jpa.hibernate.ddl-auto=update\n\nspring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect\nspring.datasource.testOnBorrow=true\nspring.datasource.validationQuery=SELECT 1"
   }
 }

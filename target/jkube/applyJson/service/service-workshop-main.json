@@ -6,7 +6,7 @@
       "app.openshift.io/vcs-ref" : "master",
       "app.openshift.io/vcs-uri" : "https://github.com/likhia/INTERNAL_SERVICE.git",
       "jkube.io/git-branch" : "master",
-      "jkube.io/git-commit" : "1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f",
+      "jkube.io/git-commit" : "138c80be86360be7ce8addee339c3e09185d2d3e",
       "jkube.io/git-url" : "https://github.com/likhia/INTERNAL_SERVICE.git",
       "jkube.io/issue-system" : "GitHub",
       "jkube.io/issue-tracker-url" : "https://github.com/snowdrop/spring-boot-bom/issues",
@@ -80,7 +80,7 @@
     } ],
     "name" : "workshop-main",
     "namespace" : "service",
-    "resourceVersion" : "11165988",
+    "resourceVersion" : "11445214",
     "selfLink" : "/api/v1/namespaces/service/services/workshop-main",
     "uid" : "6b3a9160-4b18-4633-b5fc-3f36468376dd"
   },

@@ -6,15 +6,15 @@
       "app.openshift.io/vcs-ref" : "master",
       "app.openshift.io/vcs-uri" : "https://github.com/likhia/INTERNAL_SERVICE.git",
       "jkube.io/git-branch" : "master",
-      "jkube.io/git-commit" : "1d8c93bf8288edfcc07fcd3a9e6eca7c27ecb32f",
+      "jkube.io/git-commit" : "138c80be86360be7ce8addee339c3e09185d2d3e",
       "jkube.io/git-url" : "https://github.com/likhia/INTERNAL_SERVICE.git",
       "jkube.io/issue-system" : "GitHub",
       "jkube.io/issue-tracker-url" : "https://github.com/snowdrop/spring-boot-bom/issues",
       "jkube.io/scm-tag" : "2.3.2.Beta1",
       "jkube.io/scm-url" : "https://github.com/snowdrop/spring-boot-bom/workshop-main"
     },
-    "creationTimestamp" : "2021-07-28T04:24:43Z",
-    "generation" : 3,
+    "creationTimestamp" : "2021-07-29T12:05:40Z",
+    "generation" : 4,
     "labels" : {
       "app" : "workshop-main",
       "group" : "com.workshop.main",
@@ -182,13 +182,13 @@
       },
       "manager" : "okhttp",
       "operation" : "Update",
-      "time" : "2021-07-28T04:24:43Z"
+      "time" : "2021-07-29T12:05:40Z"
     } ],
     "name" : "workshop-main",
     "namespace" : "service",
-    "resourceVersion" : "11165999",
+    "resourceVersion" : "11445234",
     "selfLink" : "/apis/apps/v1/namespaces/service/deployments/workshop-main",
-    "uid" : "d14cb2d4-2820-445b-8068-b069cec311b5"
+    "uid" : "d06e3b87-2397-4b75-975e-2d7799632e7b"
   },
   "spec" : {
     "progressDeadlineSeconds" : 600,
@@ -228,7 +228,7 @@
               }
             }
           } ],
-          "image" : "image-registry.openshift-image-registry.svc:5000/service/workshop-main@sha256:68bd3e2fa913840576d398711974326a3185df192ccb6270c3156cfcb7eb0519",
+          "image" : "image-registry.openshift-image-registry.svc:5000/service/workshop-main@sha256:27ac3af94ea4928dde014f6163fd73e61e5a7e8ac507cbdf45ee2abdaaef745e",
           "imagePullPolicy" : "IfNotPresent",
           "livenessProbe" : {
             "failureThreshold" : 3,
@@ -302,21 +302,21 @@
   "status" : {
     "availableReplicas" : 1,
     "conditions" : [ {
-      "lastTransitionTime" : "2021-07-28T04:24:43Z",
-      "lastUpdateTime" : "2021-07-28T04:25:11Z",
-      "message" : "ReplicaSet \"workshop-main-574f4f8d95\" has successfully progressed.",
+      "lastTransitionTime" : "2021-07-29T12:05:40Z",
+      "lastUpdateTime" : "2021-07-29T12:07:21Z",
+      "message" : "ReplicaSet \"workshop-main-777975fbb\" has successfully progressed.",
       "reason" : "NewReplicaSetAvailable",
       "status" : "True",
       "type" : "Progressing"
     }, {
-      "lastTransitionTime" : "2021-07-29T07:33:02Z",
-      "lastUpdateTime" : "2021-07-29T07:33:02Z",
+      "lastTransitionTime" : "2021-07-29T13:45:55Z",
+      "lastUpdateTime" : "2021-07-29T13:45:55Z",
       "message" : "Deployment has minimum availability.",
       "reason" : "MinimumReplicasAvailable",
       "status" : "True",
       "type" : "Available"
     } ],
-    "observedGeneration" : 2,
+    "observedGeneration" : 3,
     "readyReplicas" : 1,
     "replicas" : 1,
     "updatedReplicas" : 1
