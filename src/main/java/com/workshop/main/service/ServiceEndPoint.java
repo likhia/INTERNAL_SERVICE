@@ -22,6 +22,7 @@ public class ServiceEndPoint {
     @Value("${common.uri}")
     private String commonURI; 
 
+    //Define Repository
     @Autowired
     private VehicleRepository repository;
     
@@ -83,17 +84,8 @@ public class ServiceEndPoint {
         vehicle.setType(carInfo.getType());
         vehicle.setCreatedYear(carInfo.getCreatedYear());
         vehicle.setUser(carInfo.getUser());
-
-        
         vehicle.setUsed(carInfo.getUsed().toString());
 
         repository.save(vehicle);
-        Iterable<VehicleEntity> iter = repository.findAll();
-        java.util.Iterator list = iter.iterator();
-        while(list.hasNext()){ 
-            VehicleEntity car = (VehicleEntity)list.next();
-            System.out.println(car.getCarplate());
-        }
-
     }
 }

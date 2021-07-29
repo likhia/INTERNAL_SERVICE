@@ -2,7 +2,13 @@ spec:
   template:
       spec:
         containers:
-        - volumeMounts:
+        - env:
+          - name: SPRING_DATASOURCE_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: mysql-secret
+                key: mysql-password
+          volumeMounts:
           - name: config
             mountPath: "/deployments/config"
             readOnly: true
