@@ -41,6 +41,7 @@ public class ServiceEndPoint {
         return plateNo;
     }
     
+    //Invoke common service
     /**
      * Invoke common service to get the car plate no. 
      * @param type
@@ -48,7 +49,6 @@ public class ServiceEndPoint {
      */
     private String getCarPlate(String type) {
 
-        //String uri = "http://services-common.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/api/common/carplate?type=" + type;
         String uri = "http://" + commonURI + "/api/common/carplate?type=" + type;
 
         System.out.println("URL: " + uri);
