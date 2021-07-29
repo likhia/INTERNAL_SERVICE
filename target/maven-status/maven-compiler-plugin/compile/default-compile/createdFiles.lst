@@ -1,0 +1,5 @@
+com/workshop/main/service/CarRegistration.class
+com/workshop/main/entity/VehicleRepository.class
+com/workshop/main/entity/VehicleEntity.class
+com/workshop/main/ExampleApplication.class
+com/workshop/main/service/ServiceEndPoint.class

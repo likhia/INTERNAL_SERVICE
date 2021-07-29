@@ -9,6 +9,7 @@ public class CarRegistration {
     private String createdYear = null;
     private Boolean used  = null;
     private String type  = null;
+    private String user  = null;
 
 
     public String getModel() {
@@ -58,6 +59,14 @@ public class CarRegistration {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
     }
 
     

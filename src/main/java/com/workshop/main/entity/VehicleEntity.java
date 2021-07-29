@@ -1,0 +1,89 @@
+package com.workshop.main.entity;
+
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Id;
+
+@Entity
+@Table(name = "vehicles")
+public class VehicleEntity {
+
+    @Id 
+    private String carplate = null;
+    
+    private String model = null;
+    private String color = null;
+    private Integer engineCapacity = null;
+    private String createdYear = null;
+    private String used  = null;
+    private String type  = null;
+    private String user = null;
+    
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Integer getEngineCapacity() {
+        return engineCapacity;
+    }
+
+    public void setEngineCapacity(Integer engineCapacity) {
+        this.engineCapacity = engineCapacity;
+    }
+
+    public String getCreatedYear() {
+        return createdYear;
+    }
+
+    public void setCreatedYear(String createdYear) {
+        this.createdYear = createdYear;
+    }
+
+    public String getUsed() {
+        return used;
+    }
+
+    public void setUsed(String used) {
+        this.used = used;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCarplate() {
+        return carplate;
+    }
+
+    public void setCarplate(String carplate) {
+        this.carplate = carplate;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+ 
+    
+
+}
