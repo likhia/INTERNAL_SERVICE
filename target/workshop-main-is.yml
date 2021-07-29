@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: List
+items:
+- apiVersion: image.openshift.io/v1
+  kind: ImageStream
+  metadata:
+    name: workshop-main
+  spec:
+    tags:
+    - from:
+        kind: ImageStreamImage
+        name: workshop-main@sha256:27ac3af94ea4928dde014f6163fd73e61e5a7e8ac507cbdf45ee2abdaaef745e
+        namespace: service
+      name: latest

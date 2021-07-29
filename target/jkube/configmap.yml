@@ -1,0 +1,17 @@
+metadata:
+  name: service-config-map
+data:
+  # file-like keys
+  application.properties: |-
+    resteasy.jaxrs.defaultPath:/api
+
+    common.uri=services.common.svc.cluster.local:8080
+    
+    spring.datasource.url=jdbc:mysql://mysql.database.svc.cluster:local:3306/cars
+    spring.datasource.username=admin
+    spring.datasource.password=redhat
+    spring.jpa.hibernate.ddl-auto=update
+
+    spring.jpa.properties.hibernate.dialect = org.hibernate.dialect.MySQL5InnoDBDialect
+    spring.datasource.testOnBorrow=true
+    spring.datasource.validationQuery=SELECT 1

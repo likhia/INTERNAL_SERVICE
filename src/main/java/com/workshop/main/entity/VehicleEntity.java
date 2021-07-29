@@ -5,7 +5,7 @@ import javax.persistence.Table;
 import javax.persistence.Id;
 
 @Entity
-@Table(name = "vehicles")
+@Table(name = "VEHICLES")
 public class VehicleEntity {
 
     @Id 
@@ -13,7 +13,7 @@ public class VehicleEntity {
     
     private String model = null;
     private String color = null;
-    private Integer engineCapacity = null;
+    private String engineCapacity = null;
     private String createdYear = null;
     private String used  = null;
     private String type  = null;
@@ -36,11 +36,11 @@ public class VehicleEntity {
         this.color = color;
     }
 
-    public Integer getEngineCapacity() {
+    public String getEngineCapacity() {
         return engineCapacity;
     }
 
-    public void setEngineCapacity(Integer engineCapacity) {
+    public void setEngineCapacity(String engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
 

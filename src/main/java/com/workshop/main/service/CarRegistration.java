@@ -5,7 +5,7 @@ public class CarRegistration {
 
     private String model = null;
     private String color = null;
-    private Integer engineCapacity = null;
+    private String engineCapacity = null;
     private String createdYear = null;
     private Boolean used  = null;
     private String type  = null;
@@ -29,11 +29,11 @@ public class CarRegistration {
         this.color = color;
     }
 
-    public Integer getEngineCapacity() {
+    public String getEngineCapacity() {
         return engineCapacity;
     }
 
-    public void setEngineCapacity(Integer engineCapacity) {
+    public void setEngineCapacity(String engineCapacity) {
         this.engineCapacity = engineCapacity;
     }
 

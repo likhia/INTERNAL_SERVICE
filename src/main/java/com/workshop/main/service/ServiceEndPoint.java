@@ -83,6 +83,8 @@ public class ServiceEndPoint {
         vehicle.setType(carInfo.getType());
         vehicle.setCreatedYear(carInfo.getCreatedYear());
         vehicle.setUser(carInfo.getUser());
+
+        
         vehicle.setUsed(carInfo.getUsed().toString());
 
         repository.save(vehicle);
