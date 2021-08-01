@@ -1,0 +1,52 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: workshop-main
+  labels:
+    app: workshop-main
+    group: com.workshop.main
+    provider: jkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: workshop-main
+      group: com.workshop.main
+      provider: jkube
+  template:
+    metadata:
+      labels:
+        app: workshop-main
+        group: com.workshop.main
+        provider: jkube
+    spec:
+      volumes:
+      - name: config
+        configMap:
+          name: service-config-map
+          items:
+          - key: application.properties
+            path: application.properties
+          defaultMode: 420
+      containers:
+      - name: spring-boot
+        image : image-registry.openshift-image-registry.svc:5000/service-sit/workshop-main:sit
+        env:
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-password
+        - name: KUBERNETES_NAMESPACE
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: metadata.namespace
+        ports:
+        - name: http
+          containerPort: 8080
+          protocol: TCP
+        volumeMounts:
+        - name: config
+          readOnly: true
+          mountPath: /deployments/config
