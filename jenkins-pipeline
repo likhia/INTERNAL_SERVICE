@@ -1,0 +1,72 @@
+def DEV_NS = "service"
+def SIT_NS = "service-sit"
+def DEV_IMAGE = "workshop-main:latest"
+def SIT_IMAGE = "workshop-main:sit"
+def APP_NAME= "workshop-main"
+
+pipeline {
+   agent any
+   
+   environment {
+        APPLICATION_CONFIG = '${WORKSPACE}@tmp/application.properties'
+        YAML_CONFIG = '${WORKSPACE}@tmp/deployment.yaml'
+   }
+
+   stages {
+        stage("Enter password for MySQL") {
+            steps {
+                sh "oc project ${SIT_NS}"
+                timeout(time: 30, unit: 'SECONDS') {
+                    script {
+                          env.PASSWORD = input message: 'Please enter the password',
+                                             parameters: [password(defaultValue: '',
+                                                          description: '',
+                                                          name: 'Password')]
+
+                        }
+                        
+                               
+                        sh "oc create secret generic mysql-secret --from-literal=mysql-password=${env.PASSWORD}"
+                }
+            }
+        }
+        
+        stage ('Create ConfigMap') {
+          steps {
+            configFileProvider([configFile(fileId: 'SIT-application.properties', variable: 'service_config')]) {
+                sh "cp ${env.service_config} ${APPLICATION_CONFIG}"
+               
+                sh "oc create configmap service-config-map --from-file=${APPLICATION_CONFIG}"
+                sh "sleep 5s"
+                sh "rm ${APPLICATION_CONFIG}"
+                
+            }
+          }
+        }
+        
+        stage ('SIT') {
+            steps {
+              sh "oc -n $DEV_NS tag $DEV_NS/$DEV_IMAGE $SIT_NS/$SIT_IMAGE"
+              sh "sleep 10s"
+              sh "oc project $SIT_NS"
+              //sh "oc new-app --name=$APP_NAME  --image-stream='$SIT_NS/$SIT_IMAGE'"
+              //sh "oc expose svc $APP_NAME"
+              
+              configFileProvider([configFile(fileId: 'Service-Deployment.yaml', variable: 'service_deploy')]) {
+                sh "cp ${env.service_deploy} ${YAML_CONFIG}"
+               
+                sh "oc apply -f ${YAML_CONFIG}"
+                sh "sleep 5s"
+                sh "oc expose deployment/$APP_NAME"
+                sh "oc expose svc $APP_NAME"
+                sh "rm ${YAML_CONFIG}"
+                
+            }
+              
+            }
+
+        }
+
+   }
+
+}
