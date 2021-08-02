@@ -24,10 +24,7 @@
 
         <p class="lead">Sample:</p>
         <pre><code id="carplate-result">
-            curl -X POST -H "Content-Type: application/json"  \ <br>
-                 -d '{"model" : "Toyota Vios", "color" : "RED", "type" : "NORMAL", "engineCapacity" : 1.6, "createdYear" : "2021" , "used" : false}'  \ <br>
-                 $REPLACE WITH YOUR URL/api/service/registervehicle 
-
+            curl -X POST -H "Content-Type: application/json"  -d '{"model": "Toyota Vios", "color" : "RED", "type" : "NORMAL", "engineCapacity" : "1.6", "createdYear" : "2021" , "used" : false, "user" : "user1"}'  $REPLACE WITH YOUR URL/api/service/registervehicle 
         </code></pre>
 </div>
 
