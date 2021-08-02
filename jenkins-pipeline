@@ -2,7 +2,11 @@ def DEV_NS = "service"
 def SIT_NS = "service-sit"
 def DEV_IMAGE = "workshop-main:latest"
 def SIT_IMAGE = "workshop-main:sit"
+def DEV_UI_IMAGE = "submitrequest:latest"
+def SIT_UI_IMAGE = "submitrequest:sit"
+
 def APP_NAME= "workshop-main"
+def UI_NAME= "submitrequest-white"
 
 pipeline {
    agent any
@@ -44,24 +48,37 @@ pipeline {
           }
         }
         
-        stage ('SIT') {
+        stage ('Move Main service to SIT') {
             steps {
-              sh "oc -n $DEV_NS tag $DEV_NS/$DEV_IMAGE $SIT_NS/$SIT_IMAGE"
+                sh "oc -n $DEV_NS tag $DEV_NS/$DEV_IMAGE $SIT_NS/$SIT_IMAGE"
+                sh "sleep 10s"
+                sh "oc project $SIT_NS"
+                //sh "oc new-app --name=$APP_NAME  --image-stream='$SIT_NS/$SIT_IMAGE'"
+                //sh "oc expose svc $APP_NAME"
+              
+                configFileProvider([configFile(fileId: 'Service-Deployment.yaml', variable: 'service_deploy')]) {
+                    sh "cp ${env.service_deploy} ${YAML_CONFIG}"
+                   
+                    sh "oc apply -f ${YAML_CONFIG}"
+                    sh "sleep 5s"
+                    sh "oc expose deployment/$APP_NAME"
+                    sh "oc expose svc $APP_NAME"
+                    sh "rm ${YAML_CONFIG}"
+                    
+                }
+              
+            }
+
+        }
+
+        stage ('Move UI to SIT') {
+            steps {
+              sh "oc -n $DEV_NS tag $DEV_NS/$DEV_UI_IMAGE $SIT_NS/$SIT_UI_IMAGE"
               sh "sleep 10s"
               sh "oc project $SIT_NS"
-              //sh "oc new-app --name=$APP_NAME  --image-stream='$SIT_NS/$SIT_IMAGE'"
-              //sh "oc expose svc $APP_NAME"
+              sh "oc new-app --name=$UI_NAME  --image-stream='$SIT_NS/$SIT_UI_IMAGE' -e COLOR=white -e ENDPOINT=http://submitrequest-white-service-sit.apps.cluster-2e68.2e68.sandbox1783.opentlc.com/ -e HOSTNAME=workshop-main.service-sit.svc.cluster.local"
+              sh "oc expose svc $UI_NAME"
               
-              configFileProvider([configFile(fileId: 'Service-Deployment.yaml', variable: 'service_deploy')]) {
-                sh "cp ${env.service_deploy} ${YAML_CONFIG}"
-               
-                sh "oc apply -f ${YAML_CONFIG}"
-                sh "sleep 5s"
-                sh "oc expose deployment/$APP_NAME"
-                sh "oc expose svc $APP_NAME"
-                sh "rm ${YAML_CONFIG}"
-                
-            }
               
             }
 
